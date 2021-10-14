@@ -1,22 +1,23 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import data from './data.js'
-import cors from 'cors'
+import Cors from 'cors'
 
 
 const app=express();
 const port=process.env.PORT||8000;
-const connection_url='mongodb+srv://admin:yvMORZGqk8ah0dFt@cluster0.9izq6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const connection_url='mongodb+srv://admin:mcaoavs9MgbZTgG4@cluster0.5mwzm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 
 
 app.use(express.json())
+app.use(Cors())
 mongoose.connect(connection_url,{
     useNewUrlParser:true,
     // useCreateIndex:true,
     // useUnifiedTopology: true,
 
 });
-app.use(cors)
+// app.use(cors)
 
 app.get('/',(req,res)=>res.status(200).send("hello"))
 app.post('/a',(req,res)=>{
